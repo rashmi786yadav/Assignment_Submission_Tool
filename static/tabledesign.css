@@ -1,0 +1,60 @@
+table,th,td,tr{
+    border:2px solid black;
+    width: 1750px;
+    
+  }
+  table.tableclass{
+    margin-left: 25px;
+    
+  }
+  th{
+    color:black;
+    font-size: larger;
+    text-align: center;
+    column-gap:normal ;
+  }
+  td{
+    text-align: center;
+    font-size:x-large;
+  }
+  .bt {
+       background-color:green;
+        border: 2px solid black;
+        
+        padding: auto;
+        text-align: center;
+        display: inline-block;
+        font-size: 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+    h3{
+      color: red;
+      text-align: center;
+      font-size:large;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .bt1 {
+      background-color:red;
+      border: 2px solid,black;
+      color:white;
+       padding: auto;
+       text-align: center;
+       display: inline-block;
+       font-size: 18px;
+       margin-top: 5px;
+       margin-bottom: 5px;
+       cursor: pointer;
+       border-radius: 5px;
+   }
+   p{
+    color:white;
+    background-color:red;
+    font-size: larger;
+   }
+   .h2make{
+     color: blue;
+     margin-left: 50px;
+     text-align: center;
+   }

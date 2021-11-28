@@ -1,0 +1,42 @@
+{% load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <title>Signup to classroom</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static '/signinup.css' %}" rel="stylesheet">
+    <link href="{% static '/tabledesign.css' %}" rel="stylesheet">
+    
+  </head>
+  
+  <body class="text-center">
+    
+  <h1 class="h2make">To Login Please Click here--><a href="/" class="btn btn-outline-primary">Sign In</a></h1>
+
+
+  <form class="form-signin" action="/createuser/" method="post">
+      {% csrf_token %}
+      <img class="mb-4" src="{% static '/images/logo.png.png' %}" alt="" width="72" height="84">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign Up</h1>
+      <label for="inputEmail" class="sr-only"></label>
+        <input pattern="\S+" name="first_name" type="text" class="form-control" placeholder="First Name" required autofocus>
+        <input pattern="\S+" name="last_name" type="text" class="form-control" placeholder=" Last Name" required autofocus>
+        <input pattern="^([0-9]{10,10})" name="mobile" type="text" class="form-control" placeholder="Mobile No." required autofocus>
+        <input pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([com]{3,3}|[0-9]{1,3})(\]?)$" name="email" type="email" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only"></label>
+      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input name="confirm_password" type="password" id="inputPassword" class="form-control" placeholder="Confirm Password" required>
+      <input type="radio" name="role", checked value="student"> Login as Student
+      <br>
+
+         <button type="submit" class="btn btn-outline-primary">Sign UP</button>
+         <p>{{message}}</p> 
+    </form>
+   
+  </body>
+</html>

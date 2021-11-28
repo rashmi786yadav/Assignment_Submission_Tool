@@ -1,0 +1,104 @@
+.bd{
+  background-color: lavender;
+}
+#one:hover{
+  border-radius: 35px;
+  color: black;
+  background-color: #4db8ff;
+}
+#two:hover{
+  border-radius: 35px;
+  color: black;
+  background-color: #4db8ff;
+}
+#three:hover{
+  border-radius: 35px;
+  color: black;
+  background-color:#4db8ff;
+}
+#four:hover{
+  border-radius: 35px;
+  color: black;
+  background-color: #4db8ff;
+}
+#five:hover{
+  border-radius: 35px;
+  color: black;
+  background-color: #4db8ff;
+}
+#six:hover{
+  border-radius: 35px;
+  color: black;
+  background-color: #4db8ff;
+}
+
+#three{
+  color: black;
+  padding-left:20px;
+  padding-right:20px;
+  font-size: 1.1rem;
+}
+#two{
+  color: black;
+  padding-left:20px;
+  padding-right:20px;
+  font-size: 1.1rem;
+}
+#one{
+  color: black;
+  padding-left:20px;
+  padding-right:20px;
+  font-size: 1.1rem;
+}
+#four{
+  color: black;
+  padding-left:20px;
+  padding-right:20px;
+  font-size: 1.1rem;
+}
+#five{
+  color: black;
+  padding-left:20px;
+  padding-right:20px;
+  font-size: 1.1rem;
+}
+#six{
+  color: black;
+  padding-left:20px;
+  padding-right:20px;
+  font-size: 1.1rem;
+}
+
+.plus{
+  position: fixed;
+   bottom: 20px;
+   right: 20px;
+}
+#bt{
+  height: 60px;
+  width: 60px;
+}
+.empty_page{
+  margin-top: 10%;
+  margin-bottom:15px;
+}
+.write{
+  text-align:center;
+}
+
+.bnt1{
+  padding: 5px;
+}
+.bnt2{
+  padding: 5px;
+}
+
+#drop1{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#drop2{
+  padding-left: 10px;
+  padding-right: 50px;
+}

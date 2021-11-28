@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Classroom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{% static '/tabledesign.css' %}" rel="stylesheet">
+  </head>
+  <body class="bd">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/admin/">
+      <img src="{% static 'images/logo.png.png' %}" width="30" height="33" class="d-inline-block align-top" alt="">Lassroom</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+      </ul>
+    </div>
+    <div class="logout">
+    <a href="/logout/" class="btn btn-outline-success">Logout</a>
+    </div>
+  </nav>
+  <center>
+    <h2 id="hk">Student Request To SignUp</h2>
+    <table class="tableclass">
+      <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in users %}
+    <tr>
+      <td>{{user.id}}</td>
+      <td>{{user.first_name}} {{user.last_name}}</td>
+      <td>{{user.email}}</td>
+      <td><a href="/admin/request/activate/{{user.id}}/" class="btn btn-sm btn-outline-success">Allow</a> <a href="/admin/user/delete/{{user.id}}/" class="btn btn-sm btn-outline-danger">Deny</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+   </table>
+
+   <table class="tableclass">
+      <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th> Status </th>
+    </tr>
+  </thead>
+  <tbody>
+    <br> <br>
+  <h2> All Students </h2>
+  {% for user in students %}
+    <tr>
+      <td>{{user.id}}</td>
+      <td>{{user.first_name}} {{user.last_name}}</td>
+      <td>{{user.email}}</td>
+      <td> {% if user.is_active %} <button class="btn btn-success">Active</button> {% else %}<button class="bt1">pending for approval</button>{% endif %} </td>
+
+      </tr>
+    {% endfor %}
+  </tbody>
+   </table>
+  </center>
+  </body>
+</html>

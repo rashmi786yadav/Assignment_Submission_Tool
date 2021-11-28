@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Classroom</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{% static '/tabledesign.css' %}" rel="stylesheet">
+  </head>
+  <body class="bd">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/admin/">
+      <img src="{% static 'images/logo.png.png' %}" width="30" height="33" class="d-inline-block align-top" alt="">Lassroom</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+      </ul>
+    </div>
+    <div class="logout">
+    <a href="/logout/" class="btn btn-outline-success">Logout</a>
+    </div>
+  </nav>
+  <center>
+    <h2 id="hk"> Request To Allocate Subjects</h2>
+    <table class="tableclass">
+      <thead>
+    <tr>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Request for Teach</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for subjectreq in subjectrequest %}
+    <tr>
+      <td>{{subjectreq.subject.name}}</td>
+      <td>{{subjectreq.user.first_name}} {{subjectreq.user.last_name}}</td>
+      <td><a href="/admin/subject/approval/{{subjectreq.id}}/" class="btn btn-sm btn-outline-success">Approve</a> <a href="/admin/subject/delete/request/{{subjectreq.id}}/" class="btn btn-sm btn-outline-danger">decline</a></td>
+    </tr>
+    {% endfor %}
+     </tbody>
+   </table>
+   <br><br>
+   <h2 id="hk">All Subjects</h2>
+    <table class="tableclass">
+      <thead>
+    <tr>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Assigned Teacher</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for subject in subjects %}
+    <tr>
+      <td>{{subject.name}}</td>
+      <td>{% if subject.teacher.user == None %}Not Assigned yet {% else %}{{subject.teacher.user.first_name}} {{subject.teacher.user.last_name}}{% endif %}</td>
+      </tr>
+    {% endfor %}
+     </tbody>
+   </table>
+  </center>
+  </body>
+</html>

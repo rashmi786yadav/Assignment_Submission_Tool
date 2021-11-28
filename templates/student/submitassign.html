@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="{% static '/tabledesign.css' %}" rel="stylesheet">
+    <title>view response</title>
+    {% if duedate_status %}
+    {% if message == "uploaded" %} Assignment already uploaded {% else %}
+    <form action="/student/submitassignment/{{assignment_id}}/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br>
+
+        <input type="file" name="file">
+        <input type="Submit">
+
+    </form>
+    {% endif %}
+    {% else %}
+    <h3> Due date Expire </h3>
+    {% endif %}
+
+    <br>
+    <br>
+    <div class="">
+    <table class="tableclass">
+        <thead>
+            <th> Assignment Name </th>
+            <th>Due Date </th>
+            <th> Assignment Status </th>
+            <th> Marks </th>
+
+            <tr>
+                <td>{{assign.assignment.name}}</td>
+                <td>{{assign.assignment.due_date}}</td>
+                <td> {% if message == "uploaded" %}{% if assign.get_marks == 0 %} Pending for check {% else %} Checked
+                    {% endif %}{% else %} Not Submitted Yet {% endif %} </td>
+                <td>{{ assign.get_marks }} </td>
+            </tr>
+        </thead>
+    </table>
+</div>
+</head>
+
+<body>
+
+</body>
+
+</html>
